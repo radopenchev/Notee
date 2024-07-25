@@ -1,0 +1,626 @@
+       
+:root{
+    --header-height: 64px;
+    --footer-height: 64px;
+    --header-footer-margin: 60px;
+    --main-max-width: 750px;
+    --nav-max-width: 1024px;
+    --gap: 24px;
+    --radius: 8px;
+    
+  
+    --theme-body-background: rgb(248,248,248);
+    --theme-text-color: rgb(46, 46, 51);
+    --theme-color-black: rgb(10,10,10);
+    --theme-color-white: rgb(255,255,255);
+    --theme-color-blue: rgb(39,104,254);
+    --theme-color-darkblue: rgb(39,90,220);
+    --theme-color-red: rgb(240,30,30);
+    --theme-color-green: rgb(50,200,0);
+    --theme-color-yellow: rgb(245, 235, 0);
+    --theme-color-orange: rgb(245, 150, 0);
+    --theme-color-graphit: rgb(46, 47, 51); 
+    --theme-color-gray: rgb(100,100,100);
+    --theme-color-gray-90: rgb(120,120,120);
+    --theme-color-gray-80: rgb(140,140,140);
+    --theme-color-gray-70: rgb(160,160,160);
+    --theme-color-gray-60: rgb(180,180,180);
+    --theme-color-gray-50: rgb(200,200,200);
+    --theme-color-gray-40: rgb(220,220,220);
+    --theme-color-gray-30: rgb(240,240,240);
+    --theme-color-gray-20: rgb(248,248,248);
+  }
+  :root[data-theme="dark"]{
+    --theme-body-background: rgb(38, 40, 43);
+    --theme-text-color: rgb(230,230,230);
+    --theme-color-black: rgb(38, 40, 43);
+    --theme-color-white: rgb(31, 32, 34);
+    --theme-color-graphit: #fff;
+    --theme-color-gray-40: rgb(38, 40, 43);
+    --theme-color-gray-30: rgb(38, 40, 43);
+    --theme-color-gray-20: rgb(38, 40, 43);
+  }
+html{
+    scroll-behavior: smooth;
+  }
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    background-color: var(--theme-body-background);
+    color: var(--theme-text-color);
+    overflow-y: auto;
+    overflow-x: hidden;
+    line-height: 1.8;
+    font-family: ubuntu, Roboto;
+    word-break: break-word;
+    direction: ltr;
+    scroll-behavior: smooth;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    font-family: ubuntu, Roboto;
+  }
+  
+  
+
+  
+  
+  a{
+    text-decoration: none;
+    color: var(--theme-color-blue);
+  }
+  
+  article,
+  aside,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  main,
+  nav,
+  section {
+    display: block;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--theme-text-color);
+    line-height: 1.2;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  strong,
+  b {
+    font-weight: 700;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /*========================= header =========================*/
+  .header{
+    display: block;
+    position: sticky;
+    position: -webkit-sticky;/*For Safari Browser*/
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: auto;
+    background-color: var(--theme-color-white);
+    box-shadow: 0px 5px 10px rgba(39,104,254, 0.15);
+    z-index: 9999;
+  }
+  :root[data-theme="dark"] .header{
+    box-shadow: 0px 5px 10px rgba(230,230,230, 0.1);
+  }
+  .header .nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: auto;
+    max-width: calc(var(--nav-max-width) + var(--gap)*2);
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .header .nav .logo{
+    width: auto;
+    height: var(--header-height);
+    font-size: 24px;
+    font-weight: 700;
+    display: inline-block;
+    color: var(--primary);
+    margin: 0px;
+    margin-left: var(--gap);
+    margin-right: var(--gap);
+    line-height: var(--header-height);
+  }
+  .header .nav .logo a{
+    color: var(--theme-color-blue);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  
+  .header .nav .menu{
+    display: inline-block;
+    width: auto;
+    height: var(--header-height);
+    margin-left: var(--gap);
+    margin-right: var(--gap);
+    line-height: 80px;
+  }
+  .header .nav .menu .item{
+    display: inline-block;
+    width: auto;
+    height: var(--header-height);
+    padding: 0px calc(var(--gap) / 2);
+    line-height: 80px;
+  }
+  .header .nav .menu .item svg{
+    width: 24px;
+    height: 24px;
+    stroke-width: 1px;
+    stroke: var(--theme-color-blue);
+    fill: var(--theme-color-blue);
+  }
+  :root[data-theme="dark"] .header .nav .menu .item svg{
+    stroke: var(--theme-color-graphit);
+    fill: var(--theme-color-graphit);
+  }
+  .header .nav .menu .item:hover svg{
+    stroke: var(--theme-color-darkblue);
+    fill: var(--theme-color-darkblue);
+    transform: scale(1.06);
+  }
+  /*========================= header =========================*/
+  
+  
+  /*========================= main =========================*/
+  .main{
+    position: relative;
+    max-width: calc(var(--main-max-width) + var(--gap) * 2);
+    min-height: calc(100vh - var(--header-height) - var(--footer-height) - var(--header-footer-margin)*1);
+    margin-top: var(--header-footer-margin);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--radius);
+    padding: calc(var(--gap) - 10px);
+  }
+  
+  .main .title{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .main .title .note-title-text{
+    display: inline;
+    vertical-align: bottom;
+    font-size: 40px;
+    color: var(--theme-text-color);
+    margin-top: 0px;
+    max-width: calc(100% - 149px);
+  }
+  .main .title .add-button{
+    display: inline-block;
+    vertical-align: bottom;
+    width: 139px;
+    height: 48px;
+    padding: 0px 10px;
+    margin-left: 10px;
+    border-radius: var(--radius);
+    color: var(--theme-color-blue);
+    background-color: var(--theme-color-white);
+    border: 1px solid var(--theme-color-gray-30);
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(39,104,254, 0.15);
+  }
+  .main .title .add-button span{
+    display: inline-block;
+  }
+  .main .title .add-button svg{
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    stroke: var(--theme-color-blue);
+    stroke-width: 1px;
+    fill: var(--theme-color-blue);
+  }
+  .main .title .add-button:hover{
+    color: var(--theme-color-white);
+    background-color: var(--theme-color-blue);
+  }
+  .main .title .add-button:hover svg{
+    stroke: var(--theme-color-white);
+    fill: var(--theme-color-white);
+  }
+  :root[data-theme="dark"] .main .title .add-button{
+    --theme-color-blue: var(--theme-color-graphit);
+    box-shadow: 0px 0px 10px rgba(10,10,10, 0.07);
+  }
+  
+  #searchInput{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 65px);
+    height: 50px;
+    padding: 10px 30px;
+    margin-bottom: 10px;
+    border-radius: var(--radius);
+    border: 1px solid var(--theme-color-gray-30);
+    background-color: var(--theme-color-white);
+    color: var(--theme-color-black);
+    font-size: 18px;
+    font-weight: normal;
+    outline: none;
+    unicode-bidi: plaintext;
+    text-align: start;
+    box-shadow: 0px 0px 10px rgba(120, 120, 120, 0.05);
+    transition: 100ms;
+  }
+  #searchInput:focus{
+    box-shadow: 0px 0px 10px rgba(120, 120, 120, 0.14);
+  }
+  
+  #searchModeButton{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+    border-radius: var(--radius);
+    background-color: var(--theme-color-white);
+    color: var(--theme-color-black);
+    border: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(120, 120, 120, 0.1);
+  }
+  #searchModeButton::before{
+    content: "!?";
+    text-align: center;
+  }
+  
+  
+  .main .labels-list{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    background-color: transparent;
+  }
+  .main .labels-list .label{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 7px 12px;
+    margin: 5px;
+    border-radius: var(--radius);
+    background-color: var(--theme-color-gray-30);
+    color: var(--theme-text-color);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
+  .main .labels-list .label:hover{
+    background-color: var(--theme-color-gray-40);
+  }
+  :root[data-theme="dark"] .main .labels-list .label{
+    --theme-color-gray-40: rgb(62, 69, 75);
+  }
+  .main .labels-list .active-label{
+    color: white;
+    background-color: var(--theme-color-darkblue);
+  }
+  .main .labels-list .active-label:hover{
+    background-color: var(--theme-color-darkblue);
+  }
+  
+  
+  .main .note-list{
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+  }
+  .main .note-list:empty::before{
+    display: block;
+    content: "No Notes yet!";
+    color: var(--theme-color-gray-70);
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    justify-content: center;
+  }
+  .main .note-list .note{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: var(--radius);
+    background-color: var(--theme-color-white);
+    color: var(--theme-text-color);
+    box-shadow: 0px 0px 10px rgba(120, 120, 120, 0.05);
+    border: 1px solid var(--theme-color-gray-30);
+    unicode-bidi: plaintext;
+    text-align: start;
+    overflow: hidden;
+  }
+  .main .note-list .note .note-id{
+    position: absolute;
+    top: -3px;
+    left: 5px;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    color: var(--theme-color-gray-40);
+    font-size: 13px;
+    font-weight: bold;
+  }
+  :root[data-theme="dark"] .main .note-list .note .note-id{
+    color: var(--theme-color-graphit);
+  }
+  .main .note-list .note .note-id::before{
+    content: "~";
+  }
+  .main .note-list .note .title{
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    unicode-bidi: plaintext;
+    text-align: start;
+  }
+  .main .note-list .note .content{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    color: var(--theme-text-color);
+    unicode-bidi: plaintext;
+    font-size: 16px;
+    text-align: start;
+  }
+  :root[data-theme="dark"] .main .note-list .note .content{
+    color: var(--theme-color-gray-60);
+  }
+  .main .note-list .note .content .code-block{
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    padding: 16px 16px;
+    border-radius: var(--radius);
+    background-color: var(--theme-color-gray-20);
+    color: var(--theme-color-blue);
+    border: 1px solid var(--theme-color-gray-30);
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 0.2mm;
+    word-spacing: 0.4mm;
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+  :root[data-theme="dark"] .main .note-list .note .content .code-block{
+    background-color: var(--theme-color-gray-30);
+    color: var(--theme-color-graphit);
+  }
+  .main .note-list .note .content .code-block .copy-code-button{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: none;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    border: 0px;
+    border-radius: var(--radius);
+    background-color: var(--theme-color-gray-50);
+    color: var(--theme-color-gray-30);
+    font-size: 15px;
+    font-weight: normal;
+    outline: none;
+    cursor: pointer;
+  }
+  .main .note-list .note .content .code-block .copy-code-button::before{
+    content: "C";
+  }
+  .main .note-list .note .content .code-block:hover .copy-code-button,
+  .main .note-list .note .content .code-block:active .copy-code-button{
+    display: block;
+  }
+  .main .note-list .note .content .code-block .copy-code-button:hover,
+  .main .note-list .note .content .code-block .copy-code-button:active{
+    background-color: var(--theme-color-graphit);
+  }
+  .main .note-list .note .content h1{
+    font-size: 22px;
+    font-weight: bold;
+    unicode-bidi: plaintext;
+    text-align: start;
+  }
+  :root[data-theme="dark"] .main .note-list .note .content h1{
+    color: var(--theme-text-color);
+  }
+  .main .note-list .note .content h2{
+    font-size: 19px;
+    font-weight: bold;
+    unicode-bidi: plaintext;
+    text-align: start;
+  }
+  .main .note-list .note .content h3{
+    font-size: 17px;
+    font-weight: bold;
+    unicode-bidi: plaintext;
+    text-align: start;
+  }
+  :root[data-theme="dark"] .main .note-list .note .content h1,
+  :root[data-theme="dark"] .main .note-list .note .content h2,
+  :root[data-theme="dark"] .main .note-list .note .content h3{
+    color: var(--theme-text-color);
+  }
+  .main .note-list .note .content p{
+    color: var(--theme-text-color);
+    font-size: 16px;
+    font-weight: normal;
+    unicode-bidi: plaintext;
+    text-align: start;
+  }
+  :root[data-theme="dark"] .main .note-list .note .content p{
+    color: var(--theme-color-gray-60);
+  }
+  .main .note-list .note .content img{
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  .main .note-list .note .content ul{
+    padding-left: 40px;
+    padding-right: 40px;
+    line-height: 1.5;
+  }
+  .main .note-list .note .note-labels{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    margin-top: 30px;
+  }
+  .main .note-list .note .note-labels:empty{
+    margin-top: 0px;
+  }
+  .main .note-list .note .note-labels .label{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 7px 12px;
+    margin: 5px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: var(--theme-color-blue);
+    border: 1px solid var(--theme-color-blue);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
+  .main .note-list .note .note-labels .label:hover{
+    border: 1px solid var(--theme-color-red);
+    color: var(--theme-color-red);
+  }
+  .main .note-list .note .note-footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    padding-top: 5px;
+    background-color: transparent;
+    border-top: 1px solid var(--theme-color-gray-30);
+  }
+  .main .note-list .note .note-footer .action-button{
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: var(--radius);
+    background-color: var(--theme-color-gray-30);
+    color: var(--theme-color-graphit);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    border: 0px;
+    outline: none;
+    cursor: pointer;
+    word-break: keep-all;
+  }
+  .main .note-list .note .note-footer .action-button:hover{
+    color: var(--theme-color-white);
+    background-color: var(--theme-color-darkblue);
+  }
+  .main .note-list .note .note-footer .delete:hover{
+    color: var(--theme-color-white);
+    background-color: var(--theme-color-red);
+  }
+  :root[data-theme="dark"] .main .note-list .note-footer .action-button{
+    --theme-color-white: rgb(255,255,255);
+  }
+  .main .note-list .note .note-footer .edit-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+  }
+  .main .note-list .note .note-footer .edit-container .action-button:hover{
+    color: var(--theme-color-white);
+    background-color: var(--theme-color-graphit);
+  }
+  /*========================= main =========================*/
+  
+  /*======================== footer ========================*/
+  .footer{
+    display: block;
+    width: 100%;
+    height: var(--footer-height);
+    margin-top: var(--header-footer-margin);
+    text-align: center;
+    line-height: var(--footer-height);
+  }
+  .footer span{
+    width: auto;
+    height: auto;
+    margin-left: 1px;
+    margin-right: 1px;
+    color: var(--theme-color-blue);
+    font-size: 14px;
+  }
+  /*======================== footer ========================*/
+  
+  #info-saver{
+    display: none;
+  }
+  
+  @media (max-width: 387px){
+    .main{
+      margin-top: calc(var(--header-footer-margin) + 60px);
+    }
+  }

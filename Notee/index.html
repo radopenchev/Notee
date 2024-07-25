@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Notee </title>
+     <link rel="stylesheet" href="style.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700,300italic,400italic,500italic,700italic'>
+  
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="logo"> Notee </div>
+        <div class="menu">
+          <a class="item" title="New Note" onclick="newNote('New note');">
+            <svg>
+              <path d="M 20 2 L 22 3 L 14 19 L 12 20 L 12 18 L 20 2 M 11 20 C 8 18 4 22 0 20 M 11 16 C 7 14 4 18 0 16 M 12 12 C 8 10 4 14 0 12 M 13 8 C 9 6 4 10 0 8 M 0 6 L 0 0 L 16 0 L 16 1 L 1 1 L 1 6 Z"></path>
+            </svg>
+          </a>
+          <a class="item" title="Switch to Dark Theme" onclick="switchTheme(this);">
+            <svg>
+              <path style="display: none;" d="M 11 6 C 3 6 3 18 11 18 C 19 18 19 6 11 6 M 7 5 L 4 2 M 15 5 L 18 2 M 11 4 L 11 1 M 7 19 L 4 22 M 15 19 L 18 22 M 11 20 L 11 23 M 19 12 L 22 12 M 3 12 L 0 12 M 4 8 L 1 6 M 18 8 L 21 6 M 18 16 L 21 18 M 4 16 L 1 18 Z"></path>
+              <path style="display: block;" d="M 6 2 C 4 11 11 20 22 19 C 5 30 -3 11 6 2 Z"></path>
+            </svg>
+          </a>
+          <a class="item" title="Save" onclick="save();">
+            <svg>
+              <path d="M 11 3 L 11 15 L 12 15 L 12 3 L 11 3 M 7 12 L 6 12 L 11.648 18.419 L 17 12 L 16 12 L 11.552 17.113 L 7 12 M 5 21 L 19 21 L 19 22 L 5 22 Z"></path>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+
+    <main class="main">
+      <div id="info-saver">{
+        "id-counter":0,
+        "theme":"light"
+      }
+      </div>
+
+      <div class="title">
+        <h1 class="note-title-text">Notee</h1>
+        <button class="add-button" onclick="newNote('New note');">
+          <span>New note</span>
+          <svg>
+            <path d="M 17 10 L 21 10 L 21 17 L 28 17 L 28 21 L 21 21 L 21 28 L 17 28 L 17 21 L 12 21 L 8 17 L 17 17 L 17 10 Z"></path>
+          </svg>
+        </button>
+      </div>
+
+      <input id="searchInput" type="text" oninput="search();" placeholder="Search in notes...">
+      <button id="searchModeButton" title="Search mode | any used word in note" onclick="searchModeSwitcher();">*</button>
+
+      <div class="labels-list">
+        <a class="label" href="#">Example label</a>
+      </div>
+
+      <div id="notes-list" class="note-list"></div>
+
+    </main>
+
+    <footer class="footer">
+      <span>&copy;<a href="">All Rigths Reserved</a> <small>2023</small></span>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
